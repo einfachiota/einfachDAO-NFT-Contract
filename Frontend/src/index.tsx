@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '@metamask/detect-provider'
+import "@alch/alchemy-web3";
 
 ReactDOM.render(
   <React.StrictMode>

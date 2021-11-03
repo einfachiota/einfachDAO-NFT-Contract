@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
+class App extends Component {
+  
+  openWallet = async () => {
+    await console.log({ //ethereum.request
+      method: 'eth_requestAccounts'
+    });
+  }
+
+
+render() {
+
+  if (typeof window.ethereum !== 'undefined') {
+    console.log('MetaMask is installed!');
+  } else {
+    console.log('Please install MetaMask!')
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button className="enable" onClick={this.openWallet}>Enable Ethereum</button>
       </header>
     </div>
   );
+}
 }
 
 export default App;
